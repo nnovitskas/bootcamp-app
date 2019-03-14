@@ -1,0 +1,19 @@
+<mat-card class="product-card">
+  <mat-card-header>
+    <mat-card-title>{{ product?.name }}</mat-card-title>
+    <mat-card-subtitle>Price: {{ product.price | currency }}</mat-card-subtitle>
+  </mat-card-header>
+  <div class="product-card-img">
+    <img mat-card-image [src]="product.imgUrl" alt="{{product.name}}">
+  </div>
+  <mat-card-content>
+    <p class="product-card-content">
+      {{ product.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="isAdmin" mat-button (click)="deleteItem($event)">Delete</button>
+    <button mat-button [routerLink]="['/products', 'all', product.id]">Details</button>
+  </mat-card-actions>
+</mat-card>
+

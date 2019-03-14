@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="center">
+  <div fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-form-field>
+      Search
+      <input matInput type="text" [(ngModel)]="searchQuery">
+    </mat-form-field>
+    <div *ngIf="isAdmin" fxFlex="0 1 calc(33.3% - 20px)" fxLayout="column" fxLayoutAlign="center center" (click)="openAddNewProduct()" class="add-product">
+      <mat-icon>add_box</mat-icon>
+    </div>
+  </div>
+  <div class="products-wrapper">
+    <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="flex-start center">
+      <div fxFlex="0 1 33.3%" fxLayout="column" fxLayoutAlign="center"
+           *ngFor="let product of products | filter: searchQuery: 'name'"
+           [ngClass]="{ 'hidden': product.isHidden && !isAdmin }">
+        <boot-product-list-item [product]="product"></boot-product-list-item>
+      </div>
+    </div>
+  </div>
+</div>

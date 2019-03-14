@@ -27,6 +27,13 @@ export class AuthService {
     );
   }
 
+  logout() {
+    if (sessionStorage.getItem('user')) {
+      sessionStorage.removeItem('user');
+      this.isLoggedIn.next(false);
+    }
+  }
+
   setIsLoggedIn(loggedIn: boolean): void {
     this.isLoggedIn.next(!!loggedIn);
   }

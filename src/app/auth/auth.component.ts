@@ -17,7 +17,7 @@ export class AuthComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    // this.authService.logout();
+
   }
 
   login(): void {

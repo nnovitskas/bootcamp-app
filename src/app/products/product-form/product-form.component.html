@@ -1,3 +1,8 @@
+<div *ngFor="let a of arr">
+  <span>{{a}}</span>
+</div>
+<button (click)="add()">Click</button>
+
 <form [formGroup]="form" novalidate autocomplete="off">
   <div fxLayout="column" fxLayoutAlign="center">
     <mat-form-field>
@@ -20,5 +25,10 @@
       <input placeholder="Picture URL" type="text" matInput formControlName="imgUrl">
     </mat-form-field>
     <mat-checkbox formControlName="isHidden">Is product hidden</mat-checkbox>
+    <div formArrayName="checkboxes">
+      <div *ngFor="let checkbox of form.get('checkboxes').controls">
+        <mat-checkbox [formControl]="checkbox">{{checkbox.value}}</mat-checkbox>
+      </div>
+    </div>
   </div>
 </form>

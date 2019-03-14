@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import { HeaderService } from '@shared/services/header.service';
+import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
+import {HeaderService} from '@shared/services/header.service';
 import {AuthService} from './auth/services/auth.service';
 import {Subscription} from 'rxjs';
 import {SpinnerService} from './core/services/spinner.service';

@@ -15,6 +15,7 @@
           {{item.label}}
         </button>
       </mat-menu>
+      <button mat-button (click)="logoutUser()">Logout</button>
     </div>
   </ng-container>
   <ng-container *ngIf="!isLoggedIn">
